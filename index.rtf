@@ -1,0 +1,161 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf840
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AppleColorEmoji;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18400\viewh14120\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\
+<title>Be My Valentine 
+\f1 \uc0\u55357 \u56469 
+\f0 </title>\
+\
+<style>\
+body\{\
+  margin:0;\
+  height:100vh;\
+  display:flex;\
+  align-items:center;\
+  justify-content:center;\
+  background:linear-gradient(135deg,#ff4d6d,#ffb6c1);\
+  font-family:Poppins,sans-serif;\
+  overflow:hidden;\
+\}\
+.card\{\
+  background:rgba(255,255,255,0.25);\
+  backdrop-filter:blur(12px);\
+  padding:40px 30px;\
+  border-radius:35px;\
+  text-align:center;\
+  box-shadow:0 25px 50px rgba(0,0,0,0.25);\
+  position:relative;\
+  z-index:2;\
+  max-width:90%;\
+\}\
+h1\{\
+  font-size:2rem;\
+  color:white;\
+  margin-bottom:15px;\
+\}\
+.tap\{\
+  color:white;\
+  opacity:0.9;\
+  font-size:0.9rem;\
+  margin-top:15px;\
+\}\
+button\{\
+  font-size:1rem;\
+  padding:12px 28px;\
+  margin:10px;\
+  border:none;\
+  border-radius:999px;\
+  cursor:pointer;\
+\}\
+.yes\{\
+  background:#ff1f4b;\
+  color:white;\
+  font-weight:bold;\
+\}\
+.no\{\
+  background:white;\
+  color:#ff1f4b;\
+  font-weight:bold;\
+  position:absolute;\
+\}\
+.heart\{\
+  position:absolute;\
+  bottom:-30px;\
+  font-size:24px;\
+  animation:floatUp 10s linear infinite;\
+\}\
+@keyframes floatUp\{\
+  0%\{transform:translateY(0);opacity:0;\}\
+  10%\{opacity:1;\}\
+  100%\{transform:translateY(-120vh);opacity:0;\}\
+\}\
+\
+/* Responsive adjustments */\
+@media(max-width:500px)\{\
+  h1\{font-size:1.5rem;\}\
+  button\{font-size:0.9rem;padding:10px 22px;\}\
+\}\
+</style>\
+</head>\
+\
+<body>\
+\
+<div class="card">\
+  <h1>
+\f1 \uc0\u55357 \u56470 
+\f0  Will you be my Valentine? 
+\f1 \uc0\u55357 \u56470 
+\f0 </h1>\
+  <button class="yes" onclick="yesClick()">Yes 
+\f1 \uc0\u55357 \u56469 
+\f0 </button>\
+  <button class="no" id="noBtn">No 
+\f1 \uc0\u55357 \u56899 
+\f0 </button>\
+  <div class="tap">
+\f1 \uc0\u10024 
+\f0  Tap anywhere for music 
+\f1 \uc0\u10024 
+\f0 </div>\
+</div>\
+\
+<audio id="music" loop>\
+  <!-- Replace the URL below with your online MP3 link -->\
+  <source src="https://example.com/your-music.mp3" type="audio/mpeg">\
+</audio>\
+\
+<script>\
+const music = document.getElementById("music");\
+let started = false;\
+\
+// Start music on first tap anywhere\
+document.body.addEventListener("click", () => \{\
+  if(!started)\{\
+    music.play();\
+    started = true;\
+  \}\
+\});\
+\
+// Yes button action\
+function yesClick()\{\
+  music.play();\
+  alert("I knew it 
+\f1 \uc0\u55357 \u56469 \u55356 \u57145 
+\f0 ");\
+\}\
+\
+// No button moving effect\
+const noBtn = document.getElementById("noBtn");\
+noBtn.addEventListener("mouseover", () => \{\
+  const btnWidth = noBtn.offsetWidth;\
+  const btnHeight = noBtn.offsetHeight;\
+  const maxX = window.innerWidth - btnWidth - 10; // keep inside viewport\
+  const maxY = window.innerHeight - btnHeight - 10;\
+  noBtn.style.left = Math.random() * maxX + "px";\
+  noBtn.style.top = Math.random() * maxY + "px";\
+\});\
+\
+// Floating hearts effect\
+setInterval(()=>\{\
+  const heart = document.createElement("div");\
+  heart.className = "heart";\
+  heart.innerHTML = "
+\f1 \uc0\u55357 \u56470 
+\f0 ";\
+  heart.style.left = Math.random()*100+"vw";\
+  document.body.appendChild(heart);\
+  setTimeout(()=>heart.remove(),10000);\
+\},500);\
+</script>\
+\
+</body>\
+</html>\
+}
